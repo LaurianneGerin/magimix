@@ -1,0 +1,10 @@
+<%= simple_form_for @music do |f| %>
+  <%= f.error_notification %>
+
+  <%= f.input :title %>
+  <%= f.input :artist %>
+  <%= f.input :album %>
+  <%= f.input :year %>
+
+  <%= f.button :submit%>
+<% end %>
