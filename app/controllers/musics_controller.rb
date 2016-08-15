@@ -1,11 +1,10 @@
 class MusicsController < ApplicationController
-
+before_action :set_music, only: [:show, :edit, :update, :destroy]
   def index
     @musics = Music.all
   end
 
   def show
-    @music = Music.find(params[:id])
   end
 
   def new
@@ -22,11 +21,9 @@ class MusicsController < ApplicationController
   end
 
   def edit
-    @music = Music.find(params[:id])
   end
 
   def update
-    @music = Music.find(params[:id])
     if @music.update(music_params)
       redirect_to music_path(@music.id)
     else
@@ -35,7 +32,6 @@ class MusicsController < ApplicationController
   end
 
   def destroy
-    @music = Music.find(params[:id])
     @music.destroy
     redirect_to musics_path
   end
@@ -43,7 +39,10 @@ class MusicsController < ApplicationController
   private
 
   def music_params
-    params.require(:music).permit(:title, :artist, :album, :year)
+    params.require(:music).permit(:title, :artist, :album, :year, :photo)
   end
 
+  def set_music
+    @music = Music.find(params[:id])
+  end
 end

@@ -1,3 +1,7 @@
+<% if @music.photo? %>
+  <%= cl_image_tag @music.photo.path, width: 200, height: 200, crop: :fill %>
+<% end %>
+
 <h2><%= @music.title %></h2>
 <h3><%= @music.artist %></h3>
 <p><%= @music.album %></p>

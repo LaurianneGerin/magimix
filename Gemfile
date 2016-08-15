@@ -1,4 +1,8 @@
 source 'https://rubygems.org'
+# Cloudinary
+gem 'cloudinary', '1.1.0'
+gem "attachinary", "1.3.1"
+gem "jquery-fileupload-rails"
 # security
 gem 'figaro'
 # Style sheet Le Wagon

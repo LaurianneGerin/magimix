@@ -2,6 +2,9 @@
 
 <% @musics.each do |music| %>
   <br>
+  <% if music.photo? %>
+  <%= cl_image_tag music.photo.path, width: 100, height: 100, crop: :fill %>
+  <% end %>
   <%= music.title %> by <%= music.artist %>
   <%= link_to 'Details', music_path(music)%>
   <%= link_to "Delete", music_path(music),
